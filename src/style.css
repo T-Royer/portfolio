@@ -6,7 +6,7 @@
   --text-dark: #1f2937;
   --text-light: #f9fafb;
   --background-light: #ffffff;
-  --background-dark: #111827;
+  --background-dark: #fdfdfd;
   --transition-speed: 0.3s;
     /* ... existing variables ... */
     --dark-bg: #121212;
@@ -357,7 +357,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Contact Section */
 #contact {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(315deg, rgb(24, 37, 81) 0%, rgba(18, 45, 117, 0.8) 100%);
   color: var(--text-light);
 }
 
@@ -400,7 +400,7 @@ footer {
   :root {
     --text-dark: #f9fafb;
     --text-light: #1f2937;
-    --background-light: #111827;
+    --background-light: #112566;
     --background-dark: #1f2937;
   }
 
@@ -506,6 +506,7 @@ input:checked + .slider:before {
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, rgba(23,37,84,0.95) 0%, rgba(30,58,138,0.8) 100%);
+    background: linear-gradient(135deg, rgb(220, 13, 13) -25%, rgb(17, 37, 103) 75%);
 }
 
 .particles {
@@ -522,7 +523,7 @@ input:checked + .slider:before {
     position: relative;
     z-index: 2;
     color: white;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 2rem;
 }
@@ -531,7 +532,8 @@ input:checked + .slider:before {
     font-size: 4rem;
     font-weight: 800;
     line-height: 1.2;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
+    margin-left: 10px;
 }
 
 .hero-title .line {
@@ -546,11 +548,21 @@ input:checked + .slider:before {
 }
 
 .hero-text {
-    font-size: 1.25rem;
+    font-size: 1.50rem;
     margin-bottom: 2rem;
+    margin-left: 14px;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.8s forwards 0.6s;
+}
+
+.saltn-line {
+    font-size: 3rem;
+    display: block;
+    opacity: 0;
+    margin-bottom: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s forwards;
 }
 
 .tech-stack {
