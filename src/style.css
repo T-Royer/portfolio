@@ -3,7 +3,7 @@
   --primary-color: #2563eb;
   --secondary-color: #1e40af;
   --accent-color: #3b82f6;
-  --text-dark: #1f2937;
+  --text-dark: #2d2de4;
   --text-light: #f9fafb;
   --background-light: #ffffff;
   --background-dark: #fdfdfd;
@@ -269,6 +269,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--background-light);
 }
 
+/*====================================================================================================*/
 .section.dark {
   background-color: var(--background-dark);
   color: var(--text-light);
@@ -364,7 +365,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Footer */
 footer {
   padding: 2rem 0;
-  background-color: var(--background-dark);
+    background-color: var(--background-dark);
   color: var(--text-light);
 }
 
@@ -400,8 +401,8 @@ footer {
   :root {
     --text-dark: #f9fafb;
     --text-light: #1f2937;
-    --background-light: #112566;
-    --background-dark: #1f2937;
+    --background-light: #4e6ddb;
+    --background-dark: #174fa6;
   }
 
   .navbar {
