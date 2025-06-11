@@ -996,3 +996,12 @@ body.dark-theme .minor-tag {
     margin-left: 12px;
     opacity: 55%;
 }
+
+.link {
+    position: relative;
+    font-weight: 500;
+    color: var(--text-dark);
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
