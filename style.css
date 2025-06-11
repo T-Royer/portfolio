@@ -191,6 +191,8 @@ body.dark-theme .card {
 /* ===== Base Styles ===== */
 html {
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+
     scroll-padding-top: 76px;
 }
 
@@ -538,10 +540,8 @@ input:checked + .slider:before {
 }
 
 .typing-text {
-    font-size: 1.50rem;
+    font-size: 1.5rem;
     margin-bottom: 2rem;
-    margin-left: 12px;
-    opacity: 55%;
 }
 
 .saltn-line {
@@ -576,6 +576,7 @@ input:checked + .slider:before {
         transform: translateY(0);
     }
 }
+
 /* Navbar Styles */
 .custom-navbar {
     padding: 1rem 0;
@@ -993,8 +994,6 @@ body.dark-theme .minor-tag {
 .min-typing-text {
     font-size: 1.50rem;
     margin-bottom: 2rem;
-    margin-left: 12px;
-    opacity: 55%;
 }
 
 .link {
@@ -1004,4 +1003,159 @@ body.dark-theme .minor-tag {
     padding: 0.5rem 0;
     transition: all 0.3s ease;
     text-decoration: none;
+}
+
+/* Traces Section Styles */
+.trace-container {
+    margin-bottom: 4rem;
+}
+
+.trace-item {
+
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 15rem;
+}
+
+.trace-image {
+    flex: 0 0 600px;
+    position: sticky;
+    top: 40%;
+    transform: translateY(-17.5%);
+    height: fit-content;
+    max-height: 80vh;
+    margin-bottom: auto;
+}
+
+.trace-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.img-caption {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #a1a1a1;
+    margin: 0.5rem 0.5rem;
+}
+
+.trace-content {
+    flex: 1;
+}
+
+.trace-title {
+    font-size: 1.75rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.trace-text {
+    line-height: 1.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .trace-item {
+        flex-direction: column;
+    }
+
+    .trace-image {
+        flex: 0 0 auto;
+        position: relative;
+        top: 0;
+        transform: none;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto 2rem;
+    }
+}
+/* Add this to your existing CSS */
+.trace-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Adjust gap for reversed items to maintain consistent spacing */
+.trace-item:nth-child(even) .trace-image {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+
+
+/* Traces Navigation */
+.traces-nav {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 1000;
+    width: 175px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.traces-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+}
+
+.traces-nav-item {
+    margin: 0;
+}
+
+.traces-nav-link {
+    display: block;
+    padding: 0.5rem 0.8rem;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    background: transparent;
+}
+
+.traces-nav-link:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--primary-color);
+}
+
+.traces-nav-link.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Dark theme support */
+body.dark-theme .traces-nav {
+    background: rgba(30, 30, 30, 0.95);
+}
+
+body.dark-theme .traces-nav-link {
+    color: #fff;
+}
+
+body.dark-theme .traces-nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 992px) {
+    .traces-nav {
+        position: fixed;
+        bottom: 20px;
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        max-width: 400px;
+        right: auto;
+    }
 }

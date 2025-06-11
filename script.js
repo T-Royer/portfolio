@@ -3,7 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeAnimations();
     initializeScrollSpy();
     initializeProjectImages();
+    initializeHeroAnimations();
+
+    // Check for saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+        document.querySelector('.theme-toggle').innerHTML = '☀️';
+    }
 });
+
 
 // Navigation Bar Implementation
 function initializeNavbar() {
@@ -204,22 +213,21 @@ document.addEventListener('DOMContentLoaded', () => {
     body.classList.toggle('light-mode');
     toggle.textContent = body.classList.contains('light-mode') ? '🌞' : '🌓';
   });
-// Add this to your existing script.js
-function initializeThemeToggle() {
+
+  function initializeThemeToggle() {
     const navbar = document.querySelector('.navbar-nav');
     const themeToggle = document.createElement('button');
     themeToggle.className = 'theme-toggle ms-3';
-    themeToggle.innerHTML = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
+    themeToggle.innerHTML = document.body.classList.contains('dark') ? '☀️' : '🌙';
     themeToggle.setAttribute('aria-label', 'Toggle dark mode');
     
     themeToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark-theme');
-        themeToggle.innerHTML = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
-        localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
-        
-        // Force a repaint to ensure styles are updated
+        themeToggle.innerHTML = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+
         document.body.style.display = 'none';
-        document.body.offsetHeight; // Trigger a reflow
+        document.body.offsetHeight;
         document.body.style.display = '';
     });
     
@@ -228,7 +236,7 @@ function initializeThemeToggle() {
 
 function initializeHeroAnimations() {
     // Typing animation
-    const text = "Je suis développeur web passionné";
+    const text = "Développeur & Passionné des arts";
     const typingText = document.querySelector('.typing-text');
     let i = 0;
     
@@ -242,7 +250,6 @@ function initializeHeroAnimations() {
     
     typeWriter();
     
-    // Floating circles animation
     const circles = document.querySelector('.circles');
     for (let i = 0; i < 5; i++) {
         const circle = document.createElement('div');
@@ -251,7 +258,6 @@ function initializeHeroAnimations() {
     }
 }
 
-// Enhanced scroll animations
 function initializeScrollAnimations() {
     const options = {
         threshold: 0.1,
@@ -273,21 +279,6 @@ function initializeScrollAnimations() {
     });
 }
 
-// Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    initializeNavbar();
-    initializeThemeToggle();
-    initializeHeroAnimations();
-    initializeScrollAnimations();
-    
-    // Check for saved theme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.body.classList.add('dark-theme');
-        document.querySelector('.theme-toggle').innerHTML = '☀️';
-    }
-});
-// Add this to your existing script.js
 function handleNavbarScroll() {
     const navbar = document.querySelector('.custom-navbar');
     const scrollThreshold = 50;
@@ -301,13 +292,11 @@ function handleNavbarScroll() {
     });
 }
 
-// Update your DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', () => {
     // ... your existing initialization code ...
     handleNavbarScroll();
 });
 
-// Enhanced active link handling
 function updateActiveNavLink() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
