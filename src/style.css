@@ -258,6 +258,8 @@ h1, h2, h3, h4, h5, h6 {
 #competences {
     background: linear-gradient(315deg, rgb(255, 255, 255) 15%, rgb(230, 230, 230) 100%);
     color: var(--text-light);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 /* Skills Cards */
