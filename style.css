@@ -1,7 +1,7 @@
 /* ===== Variables ===== */
 :root {
     /* Colors */
-    --primary-color: #a10000;
+    --primary-color: #7e042a;
     --secondary-color: #1e40af;
     --accent-color: #3b82f6;
     --text-dark: #f8f8f8;
@@ -20,7 +20,7 @@
 .theme-toggle {
     background: none;
     border: none;
-    color: var(--color-link);
+    color: var();
     font-size: 1.5rem;
     cursor: pointer;
     padding: 0.5rem;
@@ -28,7 +28,7 @@
 }
 
 .theme-toggle:hover {
-    color: var(--color-link-hover);
+    color: var();
 }
 
 /* Dark mode styles */
@@ -940,7 +940,7 @@ body.dark-theme .minor-tag {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 90%;
     z-index: 1;
 }
 
@@ -1044,9 +1044,19 @@ body.dark-theme .minor-tag {
     flex: 1;
 }
 
-.trace-title {
+.pre-trace-title {
+    translate: -5px 0;
+    margin-bottom: 0;
     font-size: 1.75rem;
-    color: var(--primary-color);
+    font-family: "Liberation Sans";
+    color: #606060;
+}
+
+.trace-title {
+    font-size: 2rem;
+    font-family: "Liberation Sans";
+    font-weight: bold;
+    color: #1e1f3a;
     margin-bottom: 2rem;
 }
 

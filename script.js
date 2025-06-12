@@ -123,7 +123,7 @@ function initializeProjectImages() {
     });
 }
 
-// Form Validation (if you add a contact form)
+// Form Validation (if you add  contact form)
 function validateForm(event) {
     const form = event.target;
     const email = form.querySelector('#email');
@@ -239,17 +239,26 @@ function initializeHeroAnimations() {
     const text = "Développeur & Passionné des arts";
     const typingText = document.querySelector('.typing-text');
     let i = 0;
+    let j = 0;
     
     function typeWriter() {
         if (i < text.length) {
             typingText.innerHTML += text.charAt(i);
             i++;
-            setTimeout(typeWriter, 100);
+            setTimeout(typeWriter, 50);
+        }
+        if (i >= text.length) {
+            typingText.innerHTML = text.substring(0, text.length - j);
+            j++;
+            setTimeout(typeWriter, 50);
         }
     }
-    
+
     typeWriter();
-    
+    typeWriter();
+    typeWriter();
+
+
     const circles = document.querySelector('.circles');
     for (let i = 0; i < 5; i++) {
         const circle = document.createElement('div');
