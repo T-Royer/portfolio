@@ -170,10 +170,10 @@ function showError(element, message) {
 //     localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
 // }
 //
-// const savedTheme = localStorage.getItem('theme');
-// if (savedTheme === 'dark') {
-//     document.body.classList.add('dark-theme');
-// }
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    document.body.classList.add('dark-theme');
+}
 //
 //   const toggle = document.getElementById('themeToggle');
 //   const body = document.body;
