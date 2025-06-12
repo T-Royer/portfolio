@@ -1,7 +1,7 @@
 /* ===== Variables ===== */
 :root {
     /* Colors */
-    --primary-color: #7e042a;
+    --primary-color: #bc022d;
     --secondary-color: #1e40af;
     --accent-color: #3b82f6;
     --text-dark: #f8f8f8;
@@ -16,7 +16,7 @@
     --transition-speed: 0.3s;
 }
 
-/* Dark mode toggle in navbar */
+
 .theme-toggle {
     background: none;
     border: none;
@@ -31,7 +31,7 @@
     color: var();
 }
 
-/* Dark mode styles */
+
 body.dark-theme {
     background-color: var(--dark-bg);
     color: var(--dark-text);

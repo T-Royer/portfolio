@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeScrollSpy();
     initializeProjectImages();
     initializeHeroAnimations();
+    handleNavbarScroll();
+
 
     // Check for saved theme
     const savedTheme = localStorage.getItem('theme');
@@ -14,14 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Navigation Bar Implementation
 function initializeNavbar() {
     const navbar = document.getElementById('navbar-main');
     if (!navbar) {
         console.error('Navbar element not found');
         return;
     }
-    
     fetch('navbar.html')
         .then(response => {
             if (!response.ok) {
@@ -37,8 +37,39 @@ function initializeNavbar() {
             navbar.innerHTML = '<div class="container">Error loading navigation bar</div>';
         });
 }
+document.addEventListener('DOMContentLoaded', () => {
+    // Load the navbar
+    const navbarPlaceholder = document.getElementById('navbar-placeholder');
+    if (navbarPlaceholder) {
+        fetch('navbar.html')
+            .then(response => {
+                if (!response.ok) throw new Error('Failed to load navbar');
+                return response.text();
+            })
+            .then(html => {
+                navbarPlaceholder.innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Error loading navbar:', error);
+            });
+    }
 
-// Scroll Animation
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+    if (footerPlaceholder) {
+        fetch('footer.html')
+            .then(response => {
+                if (!response.ok) throw new Error('Failed to load footer');
+                return response.text();
+            })
+            .then(html => {
+                footerPlaceholder.innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
+            });
+    }
+});
+
 function initializeAnimations() {
     const observerOptions = {
         threshold: 0.1,
@@ -61,7 +92,6 @@ function initializeAnimations() {
     });
 }
 
-// Smooth Scrolling
 function initializeScrollSpy() {
     const navLinks = document.querySelectorAll('.nav-link');
     
@@ -79,7 +109,6 @@ function initializeScrollSpy() {
         });
     });
 
-    // Update active nav item on scroll
     window.addEventListener('scroll', () => {
         let current = '';
         
@@ -101,7 +130,6 @@ function initializeScrollSpy() {
     });
 }
 
-// Image Loading and Error Handling
 function initializeProjectImages() {
     const images = document.querySelectorAll('img');
     
@@ -137,79 +165,43 @@ function showError(element, message) {
     element.classList.add('is-invalid');
 }
 
-// Theme Toggle (if you want to add manual dark mode toggle)
-function toggleTheme() {
-    document.body.classList.toggle('dark-theme');
-    localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
-}
+// function toggleTheme() {
+//     document.body.classList.toggle('dark-theme');
+//     localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+// }
+//
+// const savedTheme = localStorage.getItem('theme');
+// if (savedTheme === 'dark') {
+//     document.body.classList.add('dark-theme');
+// }
+//
+//   const toggle = document.getElementById('themeToggle');
+//   const body = document.body;
+//
+//   toggle.addEventListener('click', () => {
+//     body.classList.toggle('light-mode');
+//     toggle.textContent = body.classList.contains('light-mode') ? '🌞' : '🌓';
+//   });
 
-// Check for saved theme preference
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-    document.body.classList.add('dark-theme');
-}
-document.addEventListener('DOMContentLoaded', () => {
-    // Load the navbar
-    const navbarPlaceholder = document.getElementById('navbar-placeholder');
-    if (navbarPlaceholder) {
-      fetch('navbar.html')
-        .then(response => {
-          if (!response.ok) throw new Error('Failed to load navbar');
-          return response.text();
-        })
-        .then(html => {
-          navbarPlaceholder.innerHTML = html;
-        })
-        .catch(error => {
-          console.error('Error loading navbar:', error);
-        });
-    }
-  
-    // Load the footer
-    const footerPlaceholder = document.getElementById('footer-placeholder');
-    if (footerPlaceholder) {
-      fetch('footer.html')
-        .then(response => {
-          if (!response.ok) throw new Error('Failed to load footer');
-          return response.text();
-        })
-        .then(html => {
-          footerPlaceholder.innerHTML = html;
-        })
-        .catch(error => {
-          console.error('Error loading footer:', error);
-        });
-    }
-  });
-
-
-  const toggle = document.getElementById('themeToggle');
-  const body = document.body;
-
-  toggle.addEventListener('click', () => {
-    body.classList.toggle('light-mode');
-    toggle.textContent = body.classList.contains('light-mode') ? '🌞' : '🌓';
-  });
-
-  function initializeThemeToggle() {
-    const navbar = document.querySelector('.navbar-nav');
-    const themeToggle = document.createElement('button');
-    themeToggle.className = 'theme-toggle ms-3';
-    themeToggle.innerHTML = document.body.classList.contains('dark') ? '☀️' : '🌙';
-    themeToggle.setAttribute('aria-label', 'Toggle dark mode');
-    
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-theme');
-        themeToggle.innerHTML = document.body.classList.contains('dark') ? '☀️' : '🌙';
-        localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-
-        document.body.style.display = 'none';
-        document.body.offsetHeight;
-        document.body.style.display = '';
-    });
-    
-    navbar.appendChild(themeToggle);
-}
+//   function initializeThemeToggle() {
+//     const navbar = document.querySelector('.navbar-nav');
+//     const themeToggle = document.createElement('button');
+//     themeToggle.className = 'theme-toggle ms-3';
+//     themeToggle.innerHTML = document.body.classList.contains('dark') ? '☀️' : '🌙';
+//     themeToggle.setAttribute('aria-label', 'Toggle dark mode');
+//
+//     themeToggle.addEventListener('click', () => {
+//         document.body.classList.toggle('dark-theme');
+//         themeToggle.innerHTML = document.body.classList.contains('dark') ? '☀️' : '🌙';
+//         localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+//
+//         document.body.style.display = 'none';
+//         document.body.offsetHeight;
+//         document.body.style.display = '';
+//     });
+//
+//     navbar.appendChild(themeToggle);
+// }
 
 function initializeHeroAnimations() {
     // Typing animation
@@ -240,27 +232,6 @@ function initializeHeroAnimations() {
     }
 }
 
-function initializeScrollAnimations() {
-    const options = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, options);
-    
-    document.querySelectorAll('.project-card, .skill-card, .section-title').forEach(el => {
-        el.classList.add('animate-hidden');
-        observer.observe(el);
-    });
-}
-
 function handleNavbarScroll() {
     const navbar = document.querySelector('.custom-navbar');
     const scrollThreshold = 50;
@@ -273,11 +244,6 @@ function handleNavbarScroll() {
         }
     });
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    // ... your existing initialization code ...
-    handleNavbarScroll();
-});
 
 function updateActiveNavLink() {
     const sections = document.querySelectorAll('section[id]');
