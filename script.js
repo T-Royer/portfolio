@@ -123,29 +123,6 @@ function initializeProjectImages() {
     });
 }
 
-// Form Validation (if you add  contact form)
-function validateForm(event) {
-    const form = event.target;
-    const email = form.querySelector('#email');
-    const message = form.querySelector('#message');
-    
-    let isValid = true;
-    
-    // Simple email validation
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-        showError(email, 'Veuillez entrer une adresse email valide');
-        isValid = false;
-    }
-    
-    // Message validation
-    if (message.value.trim().length < 10) {
-        showError(message, 'Le message doit contenir au moins 10 caractères');
-        isValid = false;
-    }
-    
-    return isValid;
-}
-
 function showError(element, message) {
     const errorDiv = document.createElement('div');
     errorDiv.className = 'error-message text-danger mt-2';
@@ -245,20 +222,16 @@ function initializeHeroAnimations() {
         if (i < text.length) {
             typingText.innerHTML += text.charAt(i);
             i++;
-            setTimeout(typeWriter, 50);
+            setTimeout(typeWriter, 70);
         }
-        if (i >= text.length) {
-            typingText.innerHTML = text.substring(0, text.length - j);
-            j++;
-            setTimeout(typeWriter, 50);
-        }
+        // if (i >= text.length) {
+        //     typingText.innerHTML = text.substring(0, text.length - j);
+        //     j++;
+        //     setTimeout(typeWriter, 80);
+        // }
     }
 
     typeWriter();
-    typeWriter();
-    typeWriter();
-
-
     const circles = document.querySelector('.circles');
     for (let i = 0; i < 5; i++) {
         const circle = document.createElement('div');

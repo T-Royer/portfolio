@@ -146,79 +146,100 @@
                 <div class="trace-item" id="trace-2">
                     <div class="trace-image">
                         <img src="images/trace-2_tests.png" alt="Trace 2">
-                        <p class="img-caption">Figure 2 : </p>
+                        <p class="img-caption">Figure 2 : réalisation de tests unitaires pour une application de type
+                            jeu de plateau avec JUnit </p>
                     </div>
                     <div class="trace-content">
-                        <h2 class="trace-title">Trace Title 2</h2>
+                        <h2 class="pre-trace-title">Compétence visée n°2</h2>
+                        <h2 class="trace-title">Conduction d'un projet - Maquettage d'une page d’accueil</h2>
                         <div class="trace-text">
                             <p>
-                                La Figure 2 est une capture d’écran issue du projet Orbito ouvert dans l'interface de
-                                programmation IDEA, un jeu de plateau développé
-                                dans le cadre d’un travail en équipe. Le projet repose sur l’utilisation du paradigme
-                                MVC (Modèle – Vue – Contrôleur), ce qui implique une séparation stricte entre les
-                                éléments qui décrivent l’état du jeu, ceux qui le représentent visuellement, et ceux qui
-                                gèrent les interactions et la logique métier. Le fichier affiché ici illustre une phase
-                                importante du développement : les tests unitaires, et plus précisément les tests
-                                appliqués à la partie "Contrôleur", responsable de la gestion des règles du jeu et des
-                                décisions à appliquer. Le code visible appartient à la classe OrbitoControllerUnitTest,
-                                située dans le répertoire test/controller, en cohérence avec l’organisation typique des
-                                projets MVC structurés en packages.
-                                <br><br>
+                                La Figure 2 est une capture d’écran issue du projet Orbito, un jeu de plateau développé
+                                en une application Java, ce projet est ouvert dans l'interface de programmation IDEA.
+                                <br>
+                                Le projet repose sur l’utilisation du paradigme MVC (Modèle – Vue – Contrôleur), cela
+                                implique donc une séparation stricte entre les éléments qui décrivent l’état du jeu,
+                                ceux qui le représentent visuellement, et ceux qui gèrent les interactions. Cette
+                                application à également implémenter la bibliothèque « boardifier », permettant de
+                                faciliter l’affichage d’un jeu de plateau en fournissant des classes à redéfinir et à
+                                hériter.
+                                <br> <br>
+                                L’intérêt de ce genre de classe est de tester le bon fonctionnement des méthodes
+                                intégrées à l’application. Le bon fonctionnement est lorsque la méthode renvoie bien ce
+                                que nous attendons d’elle. Un test est comporte donc des appels des méthodes testées,
+                                vérifiant que le résultat renvoyé par l’appel est bien le résultat attendu pour les
+                                paramètres fournis par ce test. Dans le jargon du test unitaire, cela s’appelle vérifier
+                                un oracle. En pratique, les test unitaires permettent de vérifier « facilement » si des
+                                modifications dans une méthode la font « régresser », donc, qu’elle ne fonctionne plus
+                                correctement. Le test unitaire est donc une brique fondamentale dans la maintenance et
+                                l’évolutivité logicielle.
+                                <br> <br>
+                                La Firgure 2 illustre les tests unitaires appliqués à la partie "Contrôleur". La partie
+                                responsable de la gestion des règles du jeu et des décisions à appliquer. La réalisation
+                                de ces tests se fait avec les bibliothèques JUnit et Mockito, permettant de l’écriture
+                                de test unitaire basique.
+                                Le code visible appartient à la classe OrbitoControllerUnitTest, située dans le
+                                répertoire test/controller, en cohérence avec l’organisation typique des projets MVC
+                                structurés en packages. La classe ne comporte que 5 classes, celle ci couvrent une
+                                partie des méthodes définies dans le controller, bien qu’il n’y ait que ces quelques
+                                tests, ceux ci permettent de couvrir une grande partie des méthodes de la classe testée.
+                                <br> <br>
                                 Le test principal affiché, testCheckMarblePlayer, est relativement simple dans son
                                 fonctionnement, mais il applique des notions essentielles de la vérification logicielle.
                                 Il vise à tester une méthode du contrôleur chargée de vérifier si une bille (marble)
-                                appartient bien au joueur courant. Pour cela, le test simule un environnement contrôlé :
-                                une bille fictive est créée à l’aide de la bibliothèque Mockito, ce qui permet de
-                                réaliser une instance fictive de son comportement sans avoir à construire un vrai objet
-                                complet du jeu. On voit ainsi l’utilisation de when(...).thenReturn(...) pour simuler
-                                dynamiquement la couleur retournée par la bille, en fonction du contexte du test. Le
-                                contrôleur est configuré pour simuler tour à tour un joueur blanc, puis noir, et
+                                appartient bien au joueur courant, celui dont c’est le tour. Pour cela, le test simule
+                                un environnement contrôlé grâce à la bibliothèque Mockito, une bille fictive est créée,
+                                ce qui permet de réaliser une instance fictive de son comportement sans avoir à
+                                construire un réel objet complet du jeu.
+                                <br>
+                                Il a donc fallu que j’utilise when(nom_méthode).thenReturn(résultat_voulu), qui sert à
+                                simuler dynamiquement la couleur retournée par la bille en fonction du contexte du test.
+                                Le contrôleur est configuré pour simuler tour à tour un joueur blanc, puis noir, et
                                 l’objectif est de vérifier que la méthode réagit correctement selon ces conditions.
-                                L’utilisation des assertions de JUnit (assertTrue, assertFalse) permet d’évaluer le
-                                comportement de la méthode : si la réponse obtenue ne correspond pas à ce qui est
-                                attendu, le test échoue automatiquement. Ces tests constituent donc une garantie que les
-                                règles métier sont correctement appliquées, indépendamment de l’interface ou du modèle.
-                                <br><br>
-                                À travers ce travail, j’ai renforcé plusieurs acquis essentiels en développement
-                                logiciel. Sur le plan des connaissances, j’ai consolidé ma compréhension du paradigme
-                                MVC, un fondement historique de la programmation logicielle, qui permet de structurer le
-                                code de façon claire et modulaire. Cela m’a permis d’identifier plus facilement les
-                                éléments à tester de manière isolée, ici le contrôleur, sans dépendre de la vue ni du
-                                modèle. J’ai également appris à manipuler des outils professionnels de test comme JUnit
-                                et Mockito, en comprenant leur rôle spécifique : l’un pour formuler des vérifications
-                                automatiques, l’autre pour simuler des objets complexes. Cela m’a amené à adopter une
-                                démarche plus rigoureuse dans mon développement, avec des tests écrits avant ou pendant
-                                le codage, dans une logique de validation progressive. Enfin, sur le plan
-                                méthodologique, j’ai pris l’habitude d’organiser mes fichiers de test selon la structure
-                                du projet, de suivre les conventions de nommage et d’utiliser l’environnement de
-                                développement pour exécuter automatiquement tous les tests. Le succès des cinq tests
-                                affichés en bas de l’écran montre que les différents cas prévus se comportent comme
-                                attendu. Cela ne garantit pas l’absence totale d’erreurs, mais c’est un indicateur
-                                précieux de stabilité. Je considère néanmoins que ces tests restent simples, et que pour
-                                progresser davantage, je devrai apprendre à concevoir des scénarios de test plus
-                                complexes, prenant en compte davantage de paramètres, d’interactions et de cas limites.
-
+                                Le test utilise les assertions de JUnit assertTrue et assertFalse, vérifiant que la
+                                méthode, qui renvoie un booléen, vérifie de la correcte manière la couleur de la bille
+                                et de sa relation avec le joueur courant. Cela permet l’évaluation du comportement de la
+                                méthode : si la réponse obtenue ne correspond pas à ce qui est attendu, le test échoue
+                                automatiquement. Les 4 assertions présentes dans ce test sont suffisantes pour tester
+                                toutes les possibilités de la méthode testée.
+                                <br>
+                                Ce test à donc pour but de garantir que les règles sont correctement appliquées,
+                                indépendamment de l’interface ou du modèle.
+                                <br> <br> <br>
+                                Cette capture d’écran ayant été réalisée durant la réalisation de ce projet, toutes les
+                                classes de tests finales ne sont pas visibles. Ces classes de tests permettent tout de
+                                même d’obtenir une couverture de 69% pour les fichiers testés, selon le calcul l’outil
+                                d’audit d’Idea, ce qui correspond aux classes couvertes par ces tests, et du fait que
+                                les classes du la partie "view" du MVC servant à l’affichage n’étaient pas testables
+                                avec des tests unitaires.
+                                Le succès des cinq tests affichés en bas de l’écran montre que les différents cas prévus
+                                se comportent comme attendu. Cela ne garantit pas l’absence totale d’erreurs, mais c’est
+                                un indicateur précieux de stabilité. Je considère néanmoins que ces tests restent
+                                simples, et que pour progresser davantage, je devrai apprendre à concevoir des scénarios
+                                de test plus complexes, prenant en compte davantage de paramètres, d’interactions et de
+                                cas limites.
                             </p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Trace 3 -->
-                <div class="trace-item" id="trace-3">
-                    <div class="trace-image">
-                        <img src="images/projet.png" alt="Trace 2">
-                        <p class="img-caption">Figure 3 : </p>
-                    </div>
-                    <div class="trace-content">
-                        <h2 class="trace-title">Trace Title 2</h2>
-                        <div class="trace-text">
-                            <p>Content for the second trace. The image will stick to the side while scrolling through
-                                this content.
-                                . </p>
-                            <p>Add more paragraphs as needed for your trace content.</p>
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="trace-item" id="trace-3">-->
+<!--                    <div class="trace-image">-->
+<!--                        <img src="images/projet.png" alt="Trace 2">-->
+<!--                        <p class="img-caption">Figure 3 : </p>-->
+<!--                    </div>-->
+<!--                    <div class="trace-content">-->
+<!--                        <h2 class="pre-trace-title">Compétence visée n°3</h2>-->
+<!--                        <h2 class="trace-title">Compétence - Application de celle ci</h2>-->
+<!--                        <div class="trace-text">-->
+<!--                            <p>Content for the second trace. The image will stick to the side while scrolling through-->
+<!--                                this content.-->
+<!--                                . </p>-->
+<!--                            <p>Add more paragraphs as needed for your trace content.</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
 
                 <!-- Add more trace-item divs as needed -->
             </div>
